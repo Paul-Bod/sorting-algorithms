@@ -2,9 +2,7 @@ import scala.collection.mutable.ListBuffer
 
 object Bubblesort extends MutableSort {
 
-  def apply(list: ListBuffer[Int]) {
-    sort(list)
-  }
+
 
   def sort(list: ListBuffer[Int]): Unit = {
     val size = list.size

@@ -1,6 +1,6 @@
 import collection.mutable.ListBuffer
 
-object SimpleQuicksort {
+object SimpleQuicksort extends Sort {
   def sort(list: List[Int]): List[Int] = {
     if (list.size > 1) {
       val less = ListBuffer[Int]()
