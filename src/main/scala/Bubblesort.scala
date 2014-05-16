@@ -1,11 +1,11 @@
 import scala.collection.mutable.ListBuffer
 
 object Bubblesort extends MutableSort {
-
-
-
   def sort(list: ListBuffer[Int]): Unit = {
-    val size = list.size
+    pass(list, list.size)
+  }
+
+  private def pass(list: ListBuffer[Int], size: Int) {
     var swapped = false
 
     for (i <- 1 to size -1) {
@@ -16,7 +16,7 @@ object Bubblesort extends MutableSort {
     }
 
     if (swapped) {
-      sort(list)
+      pass(list, size-1)
     }
   }
 }
