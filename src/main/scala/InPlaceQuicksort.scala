@@ -1,6 +1,6 @@
 import collection.mutable.ListBuffer
 
-object InPlaceQuicksort {
+object InPlaceQuicksort extends MutableSort {
   private def partition(list: ListBuffer[Int], leftIndex: Int, rightIndex: Int, pivotIndex: Int) = {
     val pivotValue = list(pivotIndex)
     var storeIndex = leftIndex
@@ -19,13 +19,6 @@ object InPlaceQuicksort {
     swap(storeIndex, rightIndex, list)
 
     storeIndex
-  }
-
-  private def swap(leftIndex: Int, rightIndex: Int, list: ListBuffer[Int]) = {
-    val leftItem = list(leftIndex)
-    val rightItem = list(rightIndex)
-    list.update(leftIndex, rightItem)
-    list.update(rightIndex, leftItem)
   }
 
   private def quicksort(list: ListBuffer[Int], leftIndex: Int, rightIndex: Int): Unit = {
