@@ -11,7 +11,6 @@ object InPlaceQuicksort {
     for (i <- leftIndex to rightIndex-1) {
       if (list(i) <= pivotValue) {
         swap(i, storeIndex, list)
-        println(list)
         storeIndex += 1
       }
     }

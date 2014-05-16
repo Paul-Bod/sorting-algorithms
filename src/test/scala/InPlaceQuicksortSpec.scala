@@ -9,6 +9,20 @@ class InPlaceQuicksortSpec extends UnitSpec {
     list should equal(sortedList)
   }
 
+  it should "sort already sorted lists" in {
+    val list = ListBuffer(1, 2, 3, 4, 5)
+    val sortedList = ListBuffer(1, 2 ,3, 4, 5)
+    InPlaceQuicksort.sort(list)
+    list should equal(sortedList)
+  }
+
+  it should "sort lists with repeated elements" in {
+    val list = ListBuffer(6, 4 ,2, 2, 2, 3)
+    val sortedList = ListBuffer(2, 2 ,2, 3, 4, 6)
+    InPlaceQuicksort.sort(list)
+    list should equal(sortedList)
+  }
+
   it should "sort a single member list" in {
     val list = ListBuffer(1)
     val sortedList = ListBuffer(1)
