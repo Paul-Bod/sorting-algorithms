@@ -6,17 +6,18 @@ object Bubblesort extends MutableSort {
   }
 
   private def pass(list: ListBuffer[Int], size: Int) {
-    var swapped = false
+    var lastSwapIndex = 0
 
     for (i <- 1 to size -1) {
       if (list(i-1) > list(i)) {
-        swapped = true
+        lastSwapIndex = i
         swap(i-1, i, list)
       }
     }
 
-    if (swapped) {
-      pass(list, size-1)
+    // all elements after lastSwapIndex are now sorted
+    if (lastSwapIndex > 0) {
+      pass(list, lastSwapIndex)
     }
   }
 }
