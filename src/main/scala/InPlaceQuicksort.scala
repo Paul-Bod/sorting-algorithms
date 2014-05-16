@@ -1,7 +1,8 @@
 import collection.mutable.ListBuffer
+import scala.collection.mutable._
 
-object InPlaceQuicksort extends MutableSort {
-  private def partition(list: ListBuffer[Int], leftIndex: Int, rightIndex: Int, pivotIndex: Int) = {
+object InPlaceQuicksort extends Sort {
+  private def partition(list: Buffer[Int], leftIndex: Int, rightIndex: Int, pivotIndex: Int) = {
     val pivotValue = list(pivotIndex)
     var storeIndex = leftIndex
 
@@ -21,7 +22,7 @@ object InPlaceQuicksort extends MutableSort {
     storeIndex
   }
 
-  private def quicksort(list: ListBuffer[Int], leftIndex: Int, rightIndex: Int): Unit = {
+  private def quicksort(list: Buffer[Int], leftIndex: Int, rightIndex: Int): Unit = {
     if (leftIndex < rightIndex) {
       val pivotIndex = leftIndex
       val pivotNewIndex = partition(list, leftIndex, rightIndex, pivotIndex)
@@ -32,9 +33,11 @@ object InPlaceQuicksort extends MutableSort {
     }
   }
 
-  def sort(list: ListBuffer[Int]) = {
+  def sort(list: List[Int]): List[Int] = {
+    val bufferedList = list.toBuffer
     val leftIndex = 0
     val rightIndex = list.size - 1
-    quicksort(list, leftIndex, rightIndex)
+    quicksort(bufferedList, leftIndex, rightIndex)
+    bufferedList.toList
   }
 }
